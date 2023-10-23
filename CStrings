@@ -6,3 +6,125 @@ for(int i=0;i<12;i++){
 //Null Character
 char a='\0';//null character
   printf("Your null character is >%c<",a);  //Your null character is ><
+
+//Creating Strings
+char arr[]="Hello World!";  
+int i=0;
+  while(i!='\0'){
+    printf("%c",arr[i]);}    //Hello World!  //Notice that computer automatically puts '\0' at the end during initialisation and size is increased by 1
+
+//Accessing elements 
+char str[20]="Physics Wallah";
+   str[1]=89;//or str[1]='Y';
+   int i=0;
+
+   while(str[i]!='\0'){
+    printf("%c",str[i]);
+    i++;}                   //PYysics Wallah
+
+//Size of String array
+char str[]="hello!";                   //Size=7
+char arr[]={'h','e','l','l','o','!'};  //Size=6
+
+//Printing a String
+include<string.h>
+char str[]="hello World!";
+printf("%s",str);//puts(str)          //hello World!
+
+//Scanning a String
+char str[40];
+scanf("%s",str);                     //Iam a coder              //There is no & symbol as str is like pass by reference 
+printf("%s",str)                     //Iam
+
+//Reading a full line
+scanf("%[^\n]s",str); //or gets(str);  //Iam a coder
+printf("%s",str);                      //Iam a coder
+
+
+//reversing a String
+   int size=0;
+   int i=0;
+   while(str[i]!='\0'){
+    size++;
+    i++;
+   }  
+   
+   for(int i=0;i<size/2;i++){
+    char temp=str[i];
+    str[i]=str[size-1-i];
+    str[size-1-i]=temp;
+   }
+   printf("\n");
+   puts(str);
+
+//Address
+ char str[]="College Wallah";
+  char* ptr=&str[0];         
+  printf("%p",ptr);           //0061FF0D
+  printf("\n%p",str);         //0061FF0D same
+  printf("\n%p",&str[0]);     //0061FF0D same
+
+//accessing through address
+char str[]="College Wallah";
+  char* ptr=&str[0];
+  while(*ptr!='\0'){
+    printf("%c",*ptr);
+    ptr++;
+  }                           //College Wallah    
+
+//Initialising String through Address
+char *ptr="College Wallah";   //Read Only Behaviour 
+      ptr="Physics Wallah";   //In normal initialisation we can modify string character by character only but in pointer initialisation we can modify the entire string
+
+//Changing values with the help of pointers
+char name[]="College Wallah"; 
+  char *ptr=name;
+  *ptr='P';
+  printf("%s",name);
+  return 0;                     //Pollege Wallah(name/ptr) 
+
+  char name[]="College Wallah"; 
+  char *ptr=name;
+  ptr="Physics Wallah";
+  printf("%s",name);
+  return 0;                     //College Wallah(name) Physics Wallah(ptr)
+
+char s1[]="Physics Wallah";
+  char *s2=s1;  
+  //change s1
+  s1[0]='H';
+  printf("%s",s2);     //Hhysics Walllah  //Shallow Copying (Memory location does not change of the new character)
+
+                       //Deep Copying(missing)
+
+strlen(char *str)//Returns the length of String
+strcpy(char *s1,char *s2)//copies content of s2 to s1
+strcat(char *s1, char *s2)//concates and stores it in s1
+strcmp(char *s1, char *s2)//compares s1 and s2
+strncpy(char *s2,char *s1, int len)//copy substring of size length starting from s1 character pointer into s2
+
+//strlen
+  char *str="Code Length";
+  int x=strlen(str);
+  printf("%d",x);//11 
+//strcpy
+  char s1[12]="Code Length";
+  char s2[12];
+  strcpy(s2,s1);            //shallow copy/deep copy
+  s1[0]='B';
+  printf("%s\n%s",s1,s2);   //Bode Length \n Code length //✔️deep copy 
+//strcat
+    char s1[]="Code";
+    char s2[]="Length";
+    printf("%d\n",strlen(s1)); //4
+    strcat(s1,s2);
+    printf("%d\n",strlen(s1)); //10
+    printf("%s",s1);           //CodeLength'
+//
+
+
+
+
+
+
+   
